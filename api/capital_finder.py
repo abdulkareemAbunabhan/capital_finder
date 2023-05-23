@@ -6,7 +6,7 @@ class handler(BaseHTTPRequestHandler):
     def do_GET(self):
         path= self.path
         url_components=parse.urlsplit(path)
-        query_string_list=parse.parse_qsl(url_components)
+        query_string_list=parse.parse_qsl(url_components.query)
         params=dict(query_string_list)
         country_name=params.get("country_name")
         if(country_name):
